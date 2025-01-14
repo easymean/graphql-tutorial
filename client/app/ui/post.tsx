@@ -1,10 +1,8 @@
-export default async function Post({}) {
-  const posts = await [];
-  return (
-    <ul>
-      {posts.map((post) => (
-        <li></li>
-      ))}
-    </ul>
-  );
+type Props = {
+  title: string;
+  content: string;
+};
+
+export default function Post({ title }: Props) {
+  return <div></div>;
 }
