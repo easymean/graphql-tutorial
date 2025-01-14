@@ -13,12 +13,12 @@ type Query {
 }
 
 type Mutation {
-    addPost(newPostData: NewPostInput!): Post!
-    updatePost(id: String!, updatedData: NewPostInput!): Post!
+    addPost(newPostData: PostInput!): Post!
+    updatePost(id: String!, updatedData: PostInput!): Post!
     removePost(id: String!): Boolean!
 }
 
-input NewPostInput {
+input PostInput {
     title: String!
     content: String!
 }
