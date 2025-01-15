@@ -8,9 +8,6 @@ export class CreatePostInput {
   title: string;
 
   @Field()
-  @Length(10, 255)
+  @MaxLength(255)
   content: string;
-
-  @Field(() => [String])
-  tags: string[];
 }

@@ -1,73 +1,38 @@
-import { gql } from "@apollo/client";
-import { query } from "@/app/lib/apollo";
+import { gql } from '@apollo/client';
 
-interface IPostProps {
-  title: string;
-  content: string;
-}
-
-interface IPostQueryProps extends IPostProps {}
-
-interface IPostMutateProps extends IPostProps {}
-
-export const getPostListQuery = async () => {
-  const useQuery = gql`
-    {
-      posts {
-        title
-        content
-      }
+export const GET_POST_LIST = gql`
+  {
+    posts {
+      title
+      content
     }
-  `;
+  }
+`;
 
-  return await query({ query: useQuery });
-};
-
-export const getPostQuery = async (id: string) => {
-  const useQuery = gql`
-    query GetPost($id: ID!) {
-      post(id: $id) {
-        title
-      }
+export const GET_POST = gql`
+  query GetPost($id: ID!) {
+    post(id: $id) {
+      title
     }
-  `;
+  }
+`;
 
-  return await query({
-    query: useQuery,
-    variables: {
-      id,
-    },
-  });
-};
-
-export const createPostQuery = async ({ title, content }: IPostMutateProps) => {
-  const useQuery = gql`
-    mutation CreatePost($post: PostInput!) {
-      addPost(newPostData: $post) {
-        title
-        content
-      }
+export const CREATE_POST = gql`
+  mutation CreatePost($post: PostInput!) {
+    addPost(newPostData: $post) {
+      title
+      content
     }
-  `;
-  return await query({
-    query: useQuery,
-    variables: {
-      post: {
-        title,
-        content,
-      },
-    },
-  });
-};
+  }
+`;
 
-export const updatePostQuery = (id: string) => {
-  return gql`mutation UpdatePost($id: ID!, $post: PostInput!){
-        
-    }`;
-};
+export const UPDATE_POST = gql`
+  mutation UpdatePost($id: ID!, $post: PostInput!) {
+    updatePost(id: $id, update: $post) {
+      title
+      content
+    }
+  }
+`;
 
-export const deletePostQuery = (id: string) => {
-  return gql`mutation {
-        
-    }`;
-};
+export const DELETE_POST = '';

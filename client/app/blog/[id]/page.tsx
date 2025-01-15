@@ -1,7 +1,11 @@
-import { getPostQuery } from '@/app/lib/queries';
+import { getPostQuery } from '@/app/lib/actions';
 
-export default async function Page() {
-  const { data, loading, error } = await getPostQuery('1');
+type Props = {
+  id: string;
+};
 
-  return <ul></ul>;
+export default async function Page({ id }: Props) {
+  const { data, loading, error } = await getPostQuery(id);
+
+  return <div>{data}</div>;
 }

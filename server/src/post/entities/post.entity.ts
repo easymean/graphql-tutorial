@@ -13,7 +13,4 @@ export class Post {
 
   @Field()
   creationDate: Date;
-
-  @Field((type) => [String])
-  tags: string[];
 }
