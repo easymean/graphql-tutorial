@@ -1,4 +1,4 @@
-import { getClient, query } from '@/app/lib/apollo';
+import { getClient, query } from '@/app/lib/apllo/ApolloClient';
 import {
   CREATE_POST,
   DELETE_POST,
