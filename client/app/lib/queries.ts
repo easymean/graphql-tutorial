@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 export const GET_POST_LIST = gql`
   {
     posts {
+      id
       title
       content
     }

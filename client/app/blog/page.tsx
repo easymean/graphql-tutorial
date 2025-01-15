@@ -1,4 +1,5 @@
 import { getPostListQuery } from '@/app/lib/actions';
+import Link from 'next/link';
 
 export default async function Page() {
   const { data } = await getPostListQuery();
@@ -7,8 +8,7 @@ export default async function Page() {
       <ul>
         {data.posts.map((el) => (
           <li key={el.id}>
-            <p>{el.title}</p>
-            <p>{el.content}</p>
+            <Link href={`/blog/${el.id}`}>{el.title}</Link>
           </li>
         ))}
       </ul>

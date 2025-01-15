@@ -7,7 +7,7 @@ import { Post } from 'src/post/entities/post.entity';
 export class PostService {
   posts: Post[] = [
     {
-      id: '0',
+      id: 'hello',
       title: 'hello',
       content: 'good',
       creationDate: new Date(),

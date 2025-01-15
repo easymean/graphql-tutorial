@@ -4,8 +4,12 @@ type Props = {
   id: string;
 };
 
-export default async function Page({ id }: Props) {
-  const { data, loading, error } = await getPostQuery(id);
-
-  return <div>{data}</div>;
+export default async function Page({ params }: { params: Promise<Props> }) {
+  const { id } = await params;
+  const { data } = await getPostQuery(id);
+  return (
+    <div>
+      <p>{data.post.title}</p>
+    </div>
+  );
 }
