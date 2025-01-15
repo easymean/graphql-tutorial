@@ -1,4 +1,4 @@
-import { query } from '@/app/lib/apollo';
+import { getClient, query } from '@/app/lib/apollo';
 import {
   CREATE_POST,
   DELETE_POST,
@@ -7,7 +7,7 @@ import {
   UPDATE_POST,
 } from '@/app/lib/queries';
 import { Post } from '@/app/lib/types';
-import { ApolloQueryResult } from '@apollo/client';
+import { ApolloQueryResult, FetchResult } from '@apollo/client';
 
 interface IPostProps {
   title: string;
@@ -18,14 +18,10 @@ interface IPostQueryProps extends IPostProps {}
 
 interface IPostMutateProps extends IPostProps {}
 
-interface PostListResponse {
-  posts: Post[];
-}
-
 export const getPostListQuery = async (): Promise<
-  ApolloQueryResult<PostListResponse>
+  ApolloQueryResult<{ posts: Post[] }>
 > => {
-  return await query<PostListResponse>({ query: GET_POST_LIST });
+  return await query<{ posts: Post[] }>({ query: GET_POST_LIST });
 };
 
 export const getPostQuery = async (
@@ -39,9 +35,12 @@ export const getPostQuery = async (
   });
 };
 
-export const createPostQuery = async ({ title, content }: IPostMutateProps) => {
-  return await query({
-    query: CREATE_POST,
+export const createPostQuery = async ({
+  title,
+  content,
+}: IPostMutateProps): Promise<FetchResult<{ addPost: Post }>> => {
+  return await getClient().mutate<{ addPost: Post }>({
+    mutation: CREATE_POST,
     variables: {
       post: {
         title,
@@ -55,9 +54,10 @@ export const updatePostQuery = async (
   id: string,
   { title, content }: IPostMutateProps
 ) => {
-  return await query({
-    query: UPDATE_POST,
+  return await getClient().mutate<{ updatePost: Post }>({
+    mutation: UPDATE_POST,
     variables: {
+      id,
       post: {
         title,
         content,
@@ -67,8 +67,8 @@ export const updatePostQuery = async (
 };
 
 export const deletePostQuery = async (id: string) => {
-  return await query({
-    query: DELETE_POST,
+  return await getClient().mutate({
+    mutation: DELETE_POST,
     variables: {
       id,
     },

@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreatePostInput } from './dto/create-post.input';
 import { UpdatePostInput } from './dto/update-post.input';
 import { Post } from 'src/post/entities/post.entity';
+import { randomUUID } from 'crypto';
 
 @Injectable()
 export class PostService {
@@ -17,8 +18,9 @@ export class PostService {
   async create(createPostInput: CreatePostInput): Promise<Post> {
     console.log(`This action adds a new post`);
 
+    const id = randomUUID();
     const newPost = {
-      id: '1',
+      id,
       title: createPostInput.title,
       content: createPostInput.content,
       creationDate: new Date(),

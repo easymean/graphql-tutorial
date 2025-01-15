@@ -19,8 +19,9 @@ export const GET_POST = gql`
 `;
 
 export const CREATE_POST = gql`
-  mutation CreatePost($post: PostInput!) {
-    addPost(newPostData: $post) {
+  mutation CreatePost($post: CreatePostInput!) {
+    addPost(createPostInput: $post) {
+      id
       title
       content
     }
@@ -30,6 +31,7 @@ export const CREATE_POST = gql`
 export const UPDATE_POST = gql`
   mutation UpdatePost($id: ID!, $post: PostInput!) {
     updatePost(id: $id, update: $post) {
+      id
       title
       content
     }
