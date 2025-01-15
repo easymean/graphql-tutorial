@@ -28,8 +28,10 @@ export const getPostListQuery = async (): Promise<
   return await query<PostListResponse>({ query: GET_POST_LIST });
 };
 
-export const getPostQuery = async (id: string) => {
-  return await query({
+export const getPostQuery = async (
+  id: string
+): Promise<ApolloQueryResult<{ post: Post }>> => {
+  return await query<{ post: Post }>({
     query: GET_POST,
     variables: {
       id,
@@ -65,10 +67,10 @@ export const updatePostQuery = async (
 };
 
 export const deletePostQuery = async (id: string) => {
-  // return await query({
-  //   query: DELETE_POST,
-  //   variables: {
-  //     id,
-  //   },
-  // });
+  return await query({
+    query: DELETE_POST,
+    variables: {
+      id,
+    },
+  });
 };
