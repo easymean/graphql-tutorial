@@ -1,24 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
 directive @upper on FIELD_DEFINITION
 
 type Post {
-    id: ID!
-    title: String!
-    creationDate: Date!
-    content: String!
+  id: ID!
+  title: String!
+  content: String!
+  creationDate: DateTime!
+  tags: [String!]!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Query {
-    post(id: String!): Post!;
-    posts(): [Post!]!
+  posts: [Post!]!
+  post(id: ID!): Post!
 }
 
 type Mutation {
-    addPost(newPostData: PostInput!): Post!
-    updatePost(id: String!, updatedData: PostInput!): Post!
-    removePost(id: String!): Boolean!
+  addPost(createPostInput: CreatePostInput!): Post!
+  updatePost(id: ID!, updatePostInput: UpdatePostInput!): Post!
+  removePost(id: ID!): Boolean!
 }
 
-input PostInput {
-    title: String!
-    content: String!
+input CreatePostInput {
+  title: String!
+  content: String!
+  tags: [String!]!
+}
+
+input UpdatePostInput {
+  title: String
+  content: String
+  tags: [String!]
 }
