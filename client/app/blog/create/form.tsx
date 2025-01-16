@@ -4,7 +4,6 @@ import { CREATE_POST } from '@/lib/queries';
 import { CreatePostInput, Post } from '@/types/post';
 import { useMutation } from '@apollo/client';
 import { redirect } from 'next/navigation';
-import { revalidatePath } from 'next/cache';
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 
 export function Form() {
@@ -27,7 +26,6 @@ export function Form() {
       },
     });
 
-    revalidatePath('/blog/[id]');
     redirect(`/blog/${data?.addPost.id}`);
   };
 

@@ -37,7 +37,9 @@ export class PostService {
 
   async findOne(id: string): Promise<Post> {
     console.log(`This action returns a #${id} post`);
-    return this.posts[0];
+    let idx = this.posts.findIndex((el) => el.id === id);
+    if (idx < 0) idx = 0;
+    return this.posts[idx];
   }
 
   async update(id: string, updatePostInput: UpdatePostInput): Promise<Post> {
