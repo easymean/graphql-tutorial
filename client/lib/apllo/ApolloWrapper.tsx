@@ -9,7 +9,7 @@ import {
 
 const client = () => {
   const httpLink = new HttpLink({
-    uri: process.env.BASE_URL,
+    uri: process.env.NEXT_PUBLIC_BASE_URL,
     fetchOptions: { cache: 'no-store' },
   });
 
