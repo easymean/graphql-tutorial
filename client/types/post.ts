@@ -4,3 +4,10 @@ export interface Post {
   content: string;
   creationDate: Date;
 }
+
+export type CreatePostInput = {
+  post: {
+    title: string;
+    content: string;
+  };
+};

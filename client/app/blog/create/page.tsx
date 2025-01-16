@@ -1,13 +1,10 @@
-import { createPost } from './actions';
+import { Form } from './form';
 
 export default function Page() {
   return (
-    <form action={createPost}>
-      <label>title</label>
-      <input type="text" name="title" />
-      <label>content</label>
-      <input type="text" name="content" />
-      <button type="submit">Create</button>
-    </form>
+    <div>
+      <h1>새 글 작성</h1>
+      <Form />
+    </div>
   );
 }

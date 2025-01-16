@@ -22,8 +22,6 @@ export const CREATE_POST = gql`
   mutation CreatePost($post: CreatePostInput!) {
     addPost(createPostInput: $post) {
       id
-      title
-      content
     }
   }
 `;
