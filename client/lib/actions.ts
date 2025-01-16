@@ -1,12 +1,12 @@
-import { getClient, query } from '@/app/lib/apllo/ApolloClient';
+import { getClient, query } from '@/lib/apllo/ApolloClient';
 import {
   CREATE_POST,
   DELETE_POST,
   GET_POST,
   GET_POST_LIST,
   UPDATE_POST,
-} from '@/app/lib/queries';
-import { Post } from '@/app/lib/types';
+} from '@/lib/queries';
+import { Post } from '@/types/post';
 import { ApolloQueryResult, FetchResult } from '@apollo/client';
 
 interface IPostProps {

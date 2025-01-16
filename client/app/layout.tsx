@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import { ApolloWrapper } from '@/app/lib/apllo/ApolloWrapper';
+import { ApolloWrapper } from '@/lib/apllo/ApolloWrapper';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

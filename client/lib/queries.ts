@@ -5,7 +5,6 @@ export const GET_POST_LIST = gql`
     posts {
       id
       title
-      content
     }
   }
 `;
@@ -14,6 +13,7 @@ export const GET_POST = gql`
   query GetPost($id: ID!) {
     post(id: $id) {
       title
+      content
     }
   }
 `;

@@ -1,6 +1,6 @@
 'use server';
 
-import { createPostQuery } from '@/app/lib/actions';
+import { createPostQuery } from '@/lib/actions';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
