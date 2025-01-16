@@ -1,8 +1,10 @@
-import { getPostListQuery } from '@/app/lib/actions';
+import { query } from '@/lib/apllo/ApolloClient';
+import { GET_POST_LIST } from '@/lib/queries';
+import { Post } from '@/types/post';
 import Link from 'next/link';
 
 export default async function Page() {
-  const { data } = await getPostListQuery();
+  const { data } = await query<{ posts: Post[] }>({ query: GET_POST_LIST });
   return (
     <div>
       <ul>
