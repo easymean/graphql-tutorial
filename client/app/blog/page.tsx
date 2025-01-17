@@ -4,7 +4,13 @@ import { Post } from '@/types/post';
 import Link from 'next/link';
 
 export default async function Page() {
-  const { data } = await query<{ posts: Post[] }>({ query: GET_POST_LIST });
+  const { data, loading, error } = await query<{ posts: Post[] }>({
+    query: GET_POST_LIST,
+  });
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p> Error: {error.message}</p>;
+
   return (
     <div>
       <ul>
