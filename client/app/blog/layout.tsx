@@ -1,4 +1,4 @@
-import { ApolloWrapper } from '@/lib/apllo/ApolloWrapper';
+import { ApolloWrapper } from '@/lib/apollo/ApolloWrapper';
 
 export default function BlogLayout({
   children,

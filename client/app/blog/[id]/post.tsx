@@ -2,7 +2,7 @@
 
 'use client';
 
-import { GET_POST } from '@/lib/queries';
+import { GET_POST } from '@/lib/apollo/queries';
 import { Post } from '@/types/post';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'next/navigation';

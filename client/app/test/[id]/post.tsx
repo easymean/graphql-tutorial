@@ -2,7 +2,7 @@
 
 'use client';
 
-import { GET_POST } from '@/lib/queries';
+import { GET_POST } from '@/lib/urql/queries';
 import { Post } from '@/types/post';
 import { useParams } from 'next/navigation';
 import { useQuery } from 'urql';

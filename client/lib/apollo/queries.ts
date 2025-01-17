@@ -1,6 +1,4 @@
-//import { gql } from '@apollo/client';
-
-import { gql } from 'urql';
+import { gql } from '@apollo/client';
 
 export const GET_POST_LIST = gql`
   {

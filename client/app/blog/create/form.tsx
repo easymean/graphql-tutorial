@@ -1,6 +1,6 @@
 'use client';
 
-import { CREATE_POST } from '@/lib/queries';
+import { CREATE_POST } from '@/lib/apollo/queries';
 import { CreatePostInput, Post } from '@/types/post';
 import { useMutation } from '@apollo/client';
 import { redirect } from 'next/navigation';

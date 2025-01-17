@@ -1,4 +1,4 @@
-import { GET_POST_LIST } from '@/lib/queries';
+import { GET_POST_LIST } from '@/lib/urql/queries';
 import { getClient } from '@/lib/urql/UrqlClient';
 import { Post } from '@/types/post';
 import Link from 'next/link';

@@ -1,5 +1,5 @@
-import { query } from '@/lib/apllo/ApolloClient';
-import { GET_POST_LIST } from '@/lib/queries';
+import { query } from '@/lib/apollo/ApolloClient';
+import { GET_POST_LIST } from '@/lib/apollo/queries';
 import { Post } from '@/types/post';
 import Link from 'next/link';
 
