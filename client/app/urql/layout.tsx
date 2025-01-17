@@ -1,6 +1,6 @@
 import UrqlWrapper from '@/lib/urql/UrqlWrapper';
 
-export default function TestLayout({
+export default function UrqlLayout({
   children,
 }: {
   children: React.ReactNode;

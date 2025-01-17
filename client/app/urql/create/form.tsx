@@ -1,6 +1,6 @@
 'use client';
 
-import { CREATE_POST } from '@/lib/queries';
+import { CREATE_POST } from '@/lib/urql/queries';
 import { CreatePostInput, Post } from '@/types/post';
 import { useMutation } from '@urql/next';
 import { redirect } from 'next/navigation';
