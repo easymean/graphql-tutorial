@@ -11,11 +11,12 @@ export default async function Page() {
   return (
     <div>
       <ul>
-        {data!.posts.map((el) => (
-          <li key={el.id}>
-            <Link href={`/test/${el.id}`}>{el.title}</Link>
-          </li>
-        ))}
+        {data &&
+          data.posts.map((el) => (
+            <li key={el.id}>
+              <Link href={`/test/${el.id}`}>{el.title}</Link>
+            </li>
+          ))}
       </ul>
     </div>
   );

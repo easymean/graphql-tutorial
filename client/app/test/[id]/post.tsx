@@ -9,7 +9,7 @@ import { useQuery } from 'urql';
 
 export default function PostDetail() {
   const { id } = useParams() as { id: string };
-  const [{ data, fetching, error }, reexcuteQuery] = useQuery<
+  const [{ data, fetching, error }] = useQuery<
     {
       post: Post;
     },
